@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="uz">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Professional 4-bandli, 5-bandli va 6-bandli rezistor rang kodi kalkulyatori. Qarshilik, tolerantlik va harorat koeffitsientini real vaqtda hisoblang.">
+	<meta name="theme-color" content="#111416">
+	<title>Resistor Color Code Calculator | JS Muxandis</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="#top" aria-label="JS Muxandis & Jamshidbek bosh sahifa">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 48 48" fill="none">
+						<path d="M4 24h9m22 0h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+						<path d="M13 17h22v14H13z" stroke="currentColor" stroke-width="2"/>
+						<path d="M18 18v12m6-12v12m6-12v12" stroke="currentColor" stroke-width="3"/>
+						<circle cx="7" cy="24" r="2" fill="currentColor"/><circle cx="41" cy="24" r="2" fill="currentColor"/>
+					</svg>
+				</span>
+				<span class="brand-copy">
+					<strong>Resistor Color Code Calculator</strong>
+					<span>JS Muxandis <i aria-hidden="true">/</i> Jamshidbek</span>
+				</span>
+			</a>
+			<p class="header-description">Rezistor ranglari orqali qarshilik, tolerantlik va harorat koeffitsientini tez va aniq hisoblang.</p>
+		</div>
+	</header>
+
+	<main id="top" class="page-content">
+		<section class="calculator" aria-label="Rezistor kalkulyatori">
+			<div class="calculator-heading">
+				<div>
+					<p class="eyebrow">ELEKTRONIKA HISOBLASH VOSITASI</p>
+					<h1>Rezistor kalkulyatori</h1>
+				</div>
+				<nav class="mode-switch" aria-label="Rezistor bandlari soni">
+					<button class="mode-button is-active" type="button" data-mode="4" aria-pressed="true">4-bandli</button>
+					<button class="mode-button" type="button" data-mode="5" aria-pressed="false">5-bandli</button>
+					<button class="mode-button" type="button" data-mode="6" aria-pressed="false">6-bandli</button>
+				</nav>
+			</div>
+
+			<div class="calculator-grid">
+				<section class="visual-column" aria-label="Rezistor ko‘rinishi va natija">
+					<article class="visual-panel panel">
+						<div class="panel-heading">
+							<div>
+								<p class="eyebrow">SXEMA KO‘RINISHI</p>
+								<h2>Tanlangan rezistor</h2>
+							</div>
+							<span class="live-indicator"><span></span> Jonli</span>
+						</div>
+						<div class="resistor-wrap">
+							<svg id="resistor-svg" class="resistor-svg" viewBox="0 0 800 230" role="img" aria-label="To‘rt rangli rezistor">
+								<defs>
+									<linearGradient id="lead-gradient" x1="0" y1="0" x2="0" y2="1">
+										<stop offset="0" stop-color="#d7dde0"/><stop offset=".48" stop-color="#899398"/><stop offset="1" stop-color="#545d61"/>
+									</linearGradient>
+									<linearGradient id="body-gradient" x1="0" y1="0" x2="0" y2="1">
+										<stop offset="0" stop-color="#e8d9b8"/><stop offset=".22" stop-color="#d8c49b"/><stop offset=".72" stop-color="#c8b58e"/><stop offset="1" stop-color="#9d8b69"/>
+									</linearGradient>
+									<linearGradient id="body-highlight" x1="0" y1="0" x2="0" y2="1">
+										<stop offset="0" stop-color="#fff" stop-opacity=".44"/><stop offset=".44" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#443a2b" stop-opacity=".16"/>
+									</linearGradient>
+									<filter id="body-shadow" x="-20%" y="-40%" width="140%" height="180%">
+										<feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#000" flood-opacity=".28"/>
+									</filter>
+								</defs>
+								<path d="M48 115h176M576 115h176" stroke="url(#lead-gradient)" stroke-width="14" stroke-linecap="round"/>
+								<path d="M48 110h176M576 110h176" stroke="#f4f6f5" stroke-opacity=".32" stroke-width="2" stroke-linecap="round"/>
+								<path d="M220 76c0-13 12-22 27-22h306c15 0 27 9 27 22v78c0 13-12 22-27 22H247c-15 0-27-9-27-22z" fill="url(#body-gradient)" filter="url(#body-shadow)"/>
+								<path d="M220 82c0-13 12-22 27-22h306c15 0 27 9 27 22v15H220z" fill="url(#body-highlight)"/>
+								<path d="M220 76c0-13 12-22 27-22h306c15 0 27 9 27 22v78c0 13-12 22-27 22H247c-15 0-27-9-27-22z" fill="none" stroke="#f1e7d2" stroke-opacity=".24" stroke-width="2"/>
+								<g id="resistor-band-1" class="resistor-band"><rect x="270" y="55" width="28" height="120" rx="3" fill="#EAB308"/></g>
+								<g id="resistor-band-2" class="resistor-band"><rect x="340" y="55" width="28" height="120" rx="3" fill="#7C3AED"/></g>
+								<g id="resistor-band-3" class="resistor-band"><rect x="410" y="55" width="28" height="120" rx="3" fill="#DC2626"/></g>
+								<g id="resistor-band-4" class="resistor-band"><rect x="480" y="55" width="28" height="120" rx="3" fill="#D4AF37"/></g>
+								<g id="resistor-band-5" class="resistor-band" style="display:none"><rect x="530" y="55" width="20" height="120" rx="3" fill="#7A3E12"/></g>
+								<g id="resistor-band-6" class="resistor-band" style="display:none"><rect x="560" y="55" width="14" height="120" rx="3" fill="#7A3E12"/></g>
+							</svg>
+						</div>
+						<div class="sequence-block">
+							<span class="sequence-label">Ranglar ketma-ketligi</span>
+							<ol id="color-sequence" class="color-sequence" aria-label="Tanlangan ranglar"></ol>
+						</div>
+					</article>
+
+					<article class="result-panel panel" aria-live="polite" aria-atomic="true">
+						<div class="result-main">
+							<p class="eyebrow">QARSHILIK</p>
+							<output id="resistance-value" class="resistance-value">4.7 kΩ</output>
+							<p id="exact-value" class="exact-value">4,700 Ω</p>
+						</div>
+						<div class="result-details">
+							<div class="result-detail">
+								<span class="detail-label">TOLERANTLIK</span>
+								<strong id="tolerance-value">±5%</strong>
+							</div>
+							<div id="temperature-detail" class="result-detail" hidden>
+								<span class="detail-label">HARORAT KOEFFITSIENTI</span>
+								<strong id="temperature-value">100 ppm/K</strong>
+							</div>
+						</div>
+					</article>
+				</section>
+
+				<section class="controls-panel panel" aria-label="Rang bandlarini tanlash">
+					<div class="panel-heading controls-heading">
+						<div>
+							<p class="eyebrow">RANGNI SOZLASH</p>
+							<h2>Rezistor bandlari</h2>
+						</div>
+						<button id="reset-button" class="reset-button" type="button">
+							<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 9a6.5 6.5 0 1 1 .8 3.2M3.5 4.5V9h4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+							Qayta tiklash
+						</button>
+					</div>
+					<div id="band-controls" class="band-grid"></div>
+					<p class="controls-note"><span aria-hidden="true">i</span> Rang tanlovi o‘zgarganda natija avtomatik hisoblanadi.</p>
+				</section>
+			</div>
+		</section>
+
+		<section class="knowledge-section" aria-labelledby="knowledge-title">
+			<div class="knowledge-intro">
+				<p class="eyebrow">QISQA QO‘LLANMA</p>
+				<h2 id="knowledge-title">Rezistor rang kodlari qanday ishlaydi?</h2>
+			</div>
+			<div class="knowledge-content">
+				<div class="mode-explanations">
+					<p><strong>4-bandli:</strong> 2 ta asosiy raqam + ko‘paytiruvchi + tolerantlik</p>
+					<p><strong>5-bandli:</strong> 3 ta asosiy raqam + ko‘paytiruvchi + tolerantlik</p>
+					<p><strong>6-bandli:</strong> 3 ta asosiy raqam + ko‘paytiruvchi + tolerantlik + harorat koeffitsienti</p>
+				</div>
+				<p class="knowledge-note"><strong>Eslatma</strong><span>Birinchi raqam qora bo‘lishi mumkin emas, chunki asosiy qiymat 0 bilan boshlanmaydi.</span></p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-inner">
+			<p class="copyright">JS Muxandis &amp; Jamshidbek © 2026. Barcha huquqlar himoyalangan.</p>
+			<nav class="social-links" aria-label="Ijtimoiy tarmoqlar">
+				<a href="https://www.instagram.com/js_muxandis/" target="_blank" rel="noopener noreferrer">
+					<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14.7" cy="5.5" r="1" fill="currentColor"/></svg>
+					Instagram
+				</a>
+				<a href="https://t.me/jamwidbek_official" target="_blank" rel="noopener noreferrer">
+					<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m2.7 9.3 13.8-5.4c.7-.3 1.3.2 1.1 1l-2.4 11.4c-.2.8-.7 1-1.4.6l-3.8-2.8-1.9 1.8c-.3.3-.6.2-.7-.2l.3-3.9 7.1-6.4c.3-.3-.1-.4-.4-.2l-8.8 5.5-3.8-1.2c-.8-.2-.8-.8.9-1.2Z" fill="currentColor"/></svg>
+					Jamshidbek | Personal Blog
+				</a>
+				<a href="https://t.me/Online_Savdo_Telegram" target="_blank" rel="noopener noreferrer">
+					<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m2.7 9.3 13.8-5.4c.7-.3 1.3.2 1.1 1l-2.4 11.4c-.2.8-.7 1-1.4.6l-3.8-2.8-1.9 1.8c-.3.3-.6.2-.7-.2l.3-3.9 7.1-6.4c.3-.3-.1-.4-.4-.2l-8.8 5.5-3.8-1.2c-.8-.2-.8-.8.9-1.2Z" fill="currentColor"/></svg>
+					Online savdo || Telegram
+				</a>
+			</nav>
+		</div>
+	</footer>
+</body>
+</html>
